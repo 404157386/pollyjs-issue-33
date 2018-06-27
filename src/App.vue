@@ -15,7 +15,7 @@ export default {
   },
   methods:{
     getData(){
-      this.$http.get('some/path').then(res => {
+      this.$http.get('/session').then(res => {
         console.log(res);
       }, err => {
         console.err(err);

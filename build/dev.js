@@ -1,6 +1,7 @@
 const Webpack = require("webpack");
 const WebpackDevServer = require("webpack-dev-server");
 const loadDevConfig = require("./webpack.dev.conf");
+const { registerExpressAPI } = require("@pollyjs/node-server");
 const mock = require("../mock");
 const options = {
   contentBase: "./dist",
@@ -18,6 +19,7 @@ loadDevConfig.then(res => {
       colors: true
     },
     before: function(app) {
+      registerExpressAPI(app);
       mock(app);
     }
   });
